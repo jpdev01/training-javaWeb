@@ -19,8 +19,7 @@ public class Cadastro extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().print("Cadastro efetuado.");
-        this.name = req.getParameter("nome");
+        this.name = req.getParameter("txtNome");
 
         this.name = (!(this.name).isEmpty()) ? this.name : "Guest";
 
@@ -28,7 +27,7 @@ public class Cadastro extends HttpServlet {
 
         html.append("<html>");
         html.append("<head>");
-        html.append("<title>Servlet executado - Recuperação de dados.");
+        html.append("<title>Servlet executado - Recuperação de dados.</title>");
         html.append("</head>");
         html.append("<body>");
         html.append("<h1>Seja bem vindo, " + this.name + "!</h1>");
