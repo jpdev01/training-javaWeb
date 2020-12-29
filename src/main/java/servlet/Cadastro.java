@@ -9,7 +9,8 @@ import java.io.IOException;
 
 @WebServlet("/cadastro/*")
 public class Cadastro extends HttpServlet {
-    public String name;
+    private String name;
+    private String password;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -20,8 +21,11 @@ public class Cadastro extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.name = req.getParameter("txtNome");
+        this.password = req.getParameter("txtsenha");
 
-        this.name = (!(this.name).isEmpty()) ? this.name : "Guest";
+        this.setName(name);
+        this.setName(name);
+        this.password = (!(this.name).isEmpty()) ? this.name : "Guest";
 
         StringBuilder html = new StringBuilder();
 
@@ -31,9 +35,32 @@ public class Cadastro extends HttpServlet {
         html.append("</head>");
         html.append("<body>");
         html.append("<h1>Seja bem vindo, " + this.name + "!</h1>");
+        html.append("<h1>Senha cadastrada: , " + this.password + "!</h1>");
         html.append("</body>");
         html.append("</html>");
 
         resp.getWriter().print(html);
     }
+
+    public String getName()
+    {
+        return this.name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = (!name.isEmpty()) ? name : "Guest";
+    }
+
+    public String getPassword()
+    {
+        return this.password;
+    }
+
+    public void setPassword(String password)
+    {
+        this.password = (!password.isEmpty()) ? password : "123";
+    }
+
+
 }
