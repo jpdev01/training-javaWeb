@@ -24,8 +24,7 @@ public class Cadastro extends HttpServlet {
         this.password = req.getParameter("txtsenha");
 
         this.setName(name);
-        this.setName(name);
-        this.password = (!(this.name).isEmpty()) ? this.name : "Guest";
+        this.setPassword(this.password);
 
         StringBuilder html = new StringBuilder();
 
@@ -35,7 +34,8 @@ public class Cadastro extends HttpServlet {
         html.append("</head>");
         html.append("<body>");
         html.append("<h1>Seja bem vindo, " + this.name + "!</h1>");
-        html.append("<h1>Senha cadastrada: , " + this.password + "!</h1>");
+        html.append("<h1>Senha cadastrada: " + this.password + "!</h1>");
+        html.append("<h2>Você se cadastrou via " + req.getHeaderNames() + "</h2>");
         html.append("</body>");
         html.append("</html>");
 
@@ -59,7 +59,7 @@ public class Cadastro extends HttpServlet {
 
     public void setPassword(String password)
     {
-        this.password = (!password.isEmpty()) ? password : "123";
+        this.password = (!password.isEmpty()) ? password : "";
     }
 
 
