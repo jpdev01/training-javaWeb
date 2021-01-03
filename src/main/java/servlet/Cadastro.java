@@ -1,16 +1,23 @@
 package servlet;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/cadastro/*")
+@WebServlet(value = "/cadastro/*", initParams = {
+        @WebInitParam(name="moeda", value ="Real"),
+        @WebInitParam(name="moeda-simbolo", value="R$"),
+        @WebInitParam(name="País", value="Brasil")
+})
 public class Cadastro extends HttpServlet {
     private String name;
     private String password;
+    String coin;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,12 +28,15 @@ public class Cadastro extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.name = req.getParameter("txtNome");
-        this.password = req.getParameter("txtsenha");
+        this.password = req.getParameter("txtpassword");
 
         this.setName(name);
         this.setPassword(this.password);
 
         StringBuilder html = new StringBuilder();
+
+
+        setMoeda();
 
         html.append("<html>");
         html.append("<head>");
@@ -35,10 +45,11 @@ public class Cadastro extends HttpServlet {
         html.append("<body>");
         html.append("<h1>Seja bem vindo, " + this.name + "!</h1>");
         html.append("<h1>Senha cadastrada: " + this.password + "!</h1>");
-        html.append("<h2>Você se cadastrou via " + req.getHeaderNames() + "</h2>");
+        html.append("<h5>Você se cadastrou via " + req.getHeaderNames() + "</h5>");
+        html.append("<h5>A moeda cadastrada no sistema é: " + getMoeda() + "<h5>");
         html.append("</body>");
         html.append("</html>");
-
+        resp.setContentType("text/html"); //desnecessário ex: image/jpeg
         resp.getWriter().print(html);
     }
 
@@ -59,8 +70,19 @@ public class Cadastro extends HttpServlet {
 
     public void setPassword(String password)
     {
-        this.password = (!password.isEmpty()) ? password : "";
+        this.password = (!password.isEmpty()) ? password : "123";
     }
 
+    public void setMoeda()
+    {
+//        ServletConfig config = getServletConfig();
+//        String moeda = config.getInitParameter("Moeda");
+        this.coin = getInitParameter("Moeda");
+    }
+
+    public String getMoeda()
+    {
+        return this.coin;
+    }
 
 }

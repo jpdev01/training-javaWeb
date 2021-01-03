@@ -4,4 +4,16 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+<!--  <servlet>-->
+<!--&lt;!&ndash;  <servlet-name>Cadastro</servlet-name>&ndash;&gt;-->
+<!--&lt;!&ndash;  <servlet-class>servlet.Cadastro</servlet-class>&ndash;&gt;-->
+<!--    <init-param>-->
+<!--      <param-name>Moeda</param-name>-->
+<!--      <param-value>R$</param-value>-->
+<!--    </init-param>-->
+<!--</servlet>-->
+<!--  <servlet-mapping>-->
+<!--  <servlet-name>Cadastro</servlet-name>-->
+<!--  <url-pattern>/Cadastro</url-pattern>-->
+<!--</servlet-mapping>-->
 </web-app>
