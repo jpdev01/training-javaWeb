@@ -17,7 +17,8 @@ import java.io.IOException;
 public class Cadastro extends HttpServlet {
     private String name;
     private String password;
-    String coin;
+    private String coin;
+    private StringBuilder html;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,24 +34,36 @@ public class Cadastro extends HttpServlet {
         this.setName(name);
         this.setPassword(this.password);
 
-        StringBuilder html = new StringBuilder();
+        try
+        {
+            html = new StringBuilder();
+        } catch (Exception e )
+        {
+
+        } finally
+        {
+            if (html != null)
+            {
+                setMoeda();
+
+                html.append("<html>");
+                html.append("<head>");
+                html.append("<title>Servlet executado - Recuperação de dados.</title>");
+                html.append("</head>");
+                html.append("<body>");
+                html.append("<h1>Seja bem vindo, " + this.name + "!</h1>");
+                html.append("<h1>Senha cadastrada: " + this.password + "!</h1>");
+                html.append("<h5>Você se cadastrou via " + req.getHeaderNames() + "</h5>");
+                html.append("<h5>A moeda cadastrada no sistema é: " + getMoeda() + "<h5>");
+                html.append("</body>");
+                html.append("</html>");
+                resp.setContentType("text/html"); //desnecessário ex: image/jpeg
+                resp.getWriter().print(html);
+            }
+        }
 
 
-        setMoeda();
 
-        html.append("<html>");
-        html.append("<head>");
-        html.append("<title>Servlet executado - Recuperação de dados.</title>");
-        html.append("</head>");
-        html.append("<body>");
-        html.append("<h1>Seja bem vindo, " + this.name + "!</h1>");
-        html.append("<h1>Senha cadastrada: " + this.password + "!</h1>");
-        html.append("<h5>Você se cadastrou via " + req.getHeaderNames() + "</h5>");
-        html.append("<h5>A moeda cadastrada no sistema é: " + getMoeda() + "<h5>");
-        html.append("</body>");
-        html.append("</html>");
-        resp.setContentType("text/html"); //desnecessário ex: image/jpeg
-        resp.getWriter().print(html);
     }
 
     public String getName()
