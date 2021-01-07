@@ -17,4 +17,65 @@ ex:
 
 DECLARATIONS
 * Códigos Java inseridos dentro no JSP
-* Usado para declarar atributos e métodos de instâncias
+* Usado para declarar atributos e métodos de instância
+* Começa com <%! e termina com %>
+ex:
+<%! int id = 0; %>
+ou
+<%!
+int getId(){
+return id;
+}
+%>
+
+COMPARAÇÕES
+JSP                     |           Servlets
+A area do quadrado é:   | out.write("A area do quadrado é:");
+<%= lado * lado %>      |        out.print(lado*lado);
+
+<html>
+<body>
+<%! int lado = 10; %>
+<%!
+int calcularArea(){
+    return lado * lado;
+}
+%>
+A área do quadrado é:
+<%= calcularArea() %>
+</body>
+</html>
+
+COMENTÁRIOS
+* dentro de scriptlets
+* Seguem o padrão do Java
+* // ou /* */
+
+* Fora dos scriptlets
+* <%-- esse é um comentário %>
+
+DIRETIVAS
+* 3 tipos
+* identificadas por começarem com <%@ e %>
+
+* INCLUDE = Inclui código de um arquivo externo no jsp
+* TAGLIB = Define uma taglib
+* PAGE = Define propriedades da página
+
+1- INCLUDE
+ex:
+%%@ include "inc/header.jsp"; %>
+conteudo do arquivo dentro do meu conteudo jsp
+
+2- TAGLIB
+* Tag Libries são bibliotecas de tags
+* Utilizadas para simplificar algumas tarefas e esconder o código Java
+ex:
+
+<%@ taglib uri="www.minhastags.com.br" prefix="sb" %>
+<sb:loop id="item" value="lista">
+...
+</sb:loop>
+
+
+
