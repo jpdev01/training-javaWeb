@@ -77,5 +77,20 @@ ex:
 ...
 </sb:loop>
 
+3- PAGE
+* Define propriedades específicas da página JSP
+* É definida por diversos atributos
+- language
+- contentType
+- pageEncoding
+- import
+- isErrorPage
+- errorPage
+
+<%@ language="java"
+contentType="text/html; charset=ISO-8859-1"
+pageEncoding="charset=ISO-8859-1" %>
+
+* O atributo import é utilizado para importar classes e/ou pacotes que serão usados no JSP
 
 
