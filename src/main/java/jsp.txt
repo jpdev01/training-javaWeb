@@ -92,5 +92,29 @@ contentType="text/html; charset=ISO-8859-1"
 pageEncoding="charset=ISO-8859-1" %>
 
 * O atributo import é utilizado para importar classes e/ou pacotes que serão usados no JSP
+ex:
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.List, java.util.ArrayList" %>
+<%@ page import="java.util.*" %> --> importação de pacote
 
+JSP ACTIONS
+* Funcionalidades para melhorar a Produtividade no desenvolvimento
+* São definidas no formato <jsp:action>
+ex:
+<jsp:include> que inclui outro JSP para renderização
+<jsp:forward> redireciona a requisição para outro local
+<jsp:param> cria parâmetros JSP
+<jsp:getProperty> recupera a propriedade de um Java Bean
+<jsp:setProperty> Atribui um valor a uma propriedade de um Java Bean
+<jsp:useBean> Referencia um Java Bean no JSP
+
+1- <jsp:include>
+* inclui o conteúdo de outro arquivo (seja html, JSP, Servlet, etc)
+* Faz a inclusão na fase de tradução
+ex:
+<html>
+<body>
+<jsp:include page="header.jsp" />
+</body>
+</html>
 
