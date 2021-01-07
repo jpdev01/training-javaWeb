@@ -118,3 +118,13 @@ ex:
 </body>
 </html>
 
+2- <jsp:forward>
+* A sua requisição que cairia nesse jsp vai ser redirecionada para outro local. (HTML, JSP, Servlet, etc.)
+ex:
+<jsp:forward page="result.jsp" />
+
+OBJETOS IMPLÍCITOS
+* Como um JSP é um Servlet, ele tem acesso à objetos que um Servlet acessaria. (Objetos que existem de forma implicita)
+
+
+
