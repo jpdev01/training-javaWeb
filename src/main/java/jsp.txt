@@ -1,0 +1,20 @@
+jsp no final se transforma em servlet
+
+scriptlet =>     <% and %>
+código java escrito dentro do jsp
+
+expression => <%= and %>
+um expression deve sempre resultar em uma String, para poder ser jogada como texto no html
+NÃO recebe ";"
+ex:
+    <ul>
+
+    <% for (String item : lista) { %>
+    <li> <%= item %> </li>
+    <% } %>
+
+    </ul>
+
+DECLARATIONS
+* Códigos Java inseridos dentro no JSP
+* Usado para declarar atributos e métodos de instâncias
