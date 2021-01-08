@@ -125,6 +125,13 @@ ex:
 
 OBJETOS IMPLÍCITOS
 * Como um JSP é um Servlet, ele tem acesso à objetos que um Servlet acessaria. (Objetos que existem de forma implicita)
+assets/images/Objetos Implicitos JSP
 
+PAGINAS DE ERRO
+* Os atributos isErrorPage e errorPage possibilitam o redirecionamento p/ uma página de erro caso alguma excessão inesperada ocorra.
+* isErrorPage deve ser usado pela página que representa a página de erro.
+* errorPage deve indicar uma página de erro em um caso de erro. (P/ ONDE) DEFINE A PAGINA DE DESTINO
+* Atributos usados em conjunto
 
+assets/images/errorpage -> nessa página vai acontecer o erro.
 
