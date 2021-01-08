@@ -134,4 +134,11 @@ PAGINAS DE ERRO
 * Atributos usados em conjunto
 
 assets/images/errorpage -> nessa página vai acontecer o erro.
+assets/images/errorpage -> página de erro, exception só existe se isErrorPage for igual a true.
+Resultado: assets/images/result error page Observe que ele não é redirecionado
+
+EM SERVLETS, o contâiner chama os métodos:
+init() -> ao inicializar o servlet
+destroy() -> ao destruir o servlet
+service() -> ao atender uma requisição
 
