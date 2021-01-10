@@ -1,0 +1,156 @@
+jsp no final se transforma em servlet
+
+scriptlet =>     <% and %>
+código java escrito dentro do jsp
+
+expression => <%= and %>
+um expression deve sempre resultar em uma String, para poder ser jogada como texto no html
+NÃO recebe ";"
+ex:
+    <ul>
+
+    <% for (String item : lista) { %>
+    <li> <%= item %> </li>
+    <% } %>
+
+    </ul>
+
+DECLARATIONS
+* Códigos Java inseridos dentro no JSP
+* Usado para declarar atributos e métodos de instância
+* Começa com <%! e termina com %>
+ex:
+<%! int id = 0; %>
+ou
+<%!
+int getId(){
+return id;
+}
+%>
+
+COMPARAÇÕES
+JSP                     |           Servlets
+A area do quadrado é:   | out.write("A area do quadrado é:");
+<%= lado * lado %>      |        out.print(lado*lado);
+
+<html>
+<body>
+<%! int lado = 10; %>
+<%!
+int calcularArea(){
+    return lado * lado;
+}
+%>
+A área do quadrado é:
+<%= calcularArea() %>
+</body>
+</html>
+
+COMENTÁRIOS
+* dentro de scriptlets
+* Seguem o padrão do Java
+* // ou /* */
+
+* Fora dos scriptlets
+* <%-- esse é um comentário %>
+
+DIRETIVAS
+* 3 tipos
+* identificadas por começarem com <%@ e %>
+
+* INCLUDE = Inclui código de um arquivo externo no jsp
+* TAGLIB = Define uma taglib
+* PAGE = Define propriedades da página
+
+1- INCLUDE
+ex:
+%%@ include "inc/header.jsp"; %>
+conteudo do arquivo dentro do meu conteudo jsp
+
+2- TAGLIB
+* Tag Libries são bibliotecas de tags
+* Utilizadas para simplificar algumas tarefas e esconder o código Java
+ex:
+
+<%@ taglib uri="www.minhastags.com.br" prefix="sb" %>
+<sb:loop id="item" value="lista">
+...
+</sb:loop>
+
+3- PAGE
+* Define propriedades específicas da página JSP
+* É definida por diversos atributos
+- language
+- contentType
+- pageEncoding
+- import
+- isErrorPage
+- errorPage
+
+<%@ language="java"
+contentType="text/html; charset=ISO-8859-1"
+pageEncoding="charset=ISO-8859-1" %>
+
+* O atributo import é utilizado para importar classes e/ou pacotes que serão usados no JSP
+ex:
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.List, java.util.ArrayList" %>
+<%@ page import="java.util.*" %> --> importação de pacote
+
+JSP ACTIONS
+* Funcionalidades para melhorar a Produtividade no desenvolvimento
+* São definidas no formato <jsp:action>
+ex:
+<jsp:include> que inclui outro JSP para renderização
+<jsp:forward> redireciona a requisição para outro local
+<jsp:param> cria parâmetros JSP
+<jsp:getProperty> recupera a propriedade de um Java Bean
+<jsp:setProperty> Atribui um valor a uma propriedade de um Java Bean
+<jsp:useBean> Referencia um Java Bean no JSP
+
+1- <jsp:include>
+* inclui o conteúdo de outro arquivo (seja html, JSP, Servlet, etc)
+* Faz a inclusão na fase de tradução
+ex:
+<html>
+<body>
+<jsp:include page="header.jsp" />
+</body>
+</html>
+
+2- <jsp:forward>
+* A sua requisição que cairia nesse jsp vai ser redirecionada para outro local. (HTML, JSP, Servlet, etc.)
+ex:
+<jsp:forward page="result.jsp" />
+
+OBJETOS IMPLÍCITOS
+* Como um JSP é um Servlet, ele tem acesso à objetos que um Servlet acessaria. (Objetos que existem de forma implicita)
+assets/images/Objetos Implicitos JSP
+
+PAGINAS DE ERRO
+* Os atributos isErrorPage e errorPage possibilitam o redirecionamento p/ uma página de erro caso alguma excessão inesperada ocorra.
+* isErrorPage deve ser usado pela página que representa a página de erro.
+* errorPage deve indicar uma página de erro em um caso de erro. (P/ ONDE) DEFINE A PAGINA DE DESTINO
+* Atributos usados em conjunto
+
+assets/images/errorpage -> nessa página vai acontecer o erro.
+assets/images/errorpage -> página de erro, exception só existe se isErrorPage for igual a true.
+Resultado: assets/images/result error page Observe que ele não é redirecionado
+
+EM SERVLETS, o contâiner chama os métodos:
+init() -> ao inicializar o servlet
+destroy() -> ao destruir o servlet
+service() -> ao atender uma requisição
+Como JSP é um servlet, ele também chama métodos semelhantes.
+jspInit()
+jspDestroy()
+_jspService()
+
+QUANDO USAR JSP E QUANDO USAR SERVLET
+OBS: MODELO MVC (Model-View-Controller)
+1. CONTROLLER = SERVLET
+2. VIEW = JSP
+quando a aplicação for fazer uma requisição ao servidor, ela fará ao servlet.
+O JSP será a página de destino que ele verá quando receber uma resposta
+
+quando um formulario é enviado (submeter os dados), ele faz uma REQUEST a um controller (servlet), com parâmetros (dados do form)

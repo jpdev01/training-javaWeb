@@ -1,0 +1,9 @@
+public class CadastroServlet extends HttpServlet {
+public void doGet(..){
+Registro reg = service.cadastrar(nome, empresa);
+request.setAttribute("r", reg);
+--> O atributo deve ter um nome, e pode ser de qualquer tipo
+
+request.getRequestDispatcher("sucesso.jsp").forward(request, response);
+}
+}
