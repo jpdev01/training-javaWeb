@@ -1,5 +1,7 @@
 package servlet;
 
+import classes.Pessoa;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -14,10 +16,6 @@ import java.io.IOException;
         @WebInitParam(name="País", value="Brasil")
 })
 public class CadastroJsp extends HttpServlet {
-    private String name;
-    private String password;
-    private String coin;
-    private StringBuilder html;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,45 +31,12 @@ public class CadastroJsp extends HttpServlet {
         req.getRequestDispatcher("success.jsp").forward(req, resp);
     }
 
-    public String getName()
-    {
-        return this.name;
-    }
-
-    public void setName(String name)
-    {
-        this.name = (!name.isEmpty()) ? name : "Guest";
-    }
-
-    public String getPassword()
-    {
-        return this.password;
-    }
-
-    public void setPassword(String password)
-    {
-        this.password = (!password.isEmpty()) ? password : "123";
-    }
-
-    public void setMoeda()
-    {
-//        ServletConfig config = getServletConfig();
-//        String moeda = config.getInitParameter("Moeda");
-        this.coin = getInitParameter("Moeda");
-    }
-
-    public String getMoeda()
-    {
-        return this.coin;
-    }
-
     public String cadastrar(HttpServletRequest req)
     {
-        this.name = req.getParameter("txtNome");
-        this.password = req.getParameter("txtpassword");
-        this.setName(name);
-        this.setPassword(this.password);
-        return this.name;
+        String name = req.getParameter("txtNome");
+        String password = req.getParameter("txtpassword");
+        Pessoa p = new Pessoa(01, name, password);
+        return name;
     }
 
 
