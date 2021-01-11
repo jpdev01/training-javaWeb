@@ -14,8 +14,10 @@
     <title>Página inicial</title>
 </head>
 <body>
-<%@ include file="header.jsp" %>
-<jsp:include page="header.jsp"></jsp:include>
+<%@ include file="header.jsp" %> <!-- JSP compilado já contem o conteúdo a ser incluido -->
+<jsp:include page="header.jsp"></jsp:include> <!-- Conteúdo é incluido apenas na renderização (quando vai ser mostrado/processado/enviado ao cliente) ESSE É MAIS UTILIZADO!!!-->
+<!-- OBS: também pode fazer include de um arquivo html! -->
+
 Conteúdo da página inicial
 João
 </body>

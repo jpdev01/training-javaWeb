@@ -33,8 +33,8 @@ public class CadastroJsp extends HttpServlet {
 
     public String cadastrar(HttpServletRequest req)
     {
-        String name = req.getParameter("txtNome");
-        String password = req.getParameter("txtpassword");
+        String name = req.getParameter("name");
+        String password = req.getParameter("password");
         Pessoa p = new Pessoa(01, name, password);
         return name;
     }

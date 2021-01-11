@@ -5,7 +5,7 @@
     <title>Formulário</title>
 </head>
 <body>
-    <h1>Formulário:</h1>
+    <h1>Formulário (somente servlet):</h1>
     <form action="cadastro/welcome" method="post">
         <fieldset>
             <legend>Preencha o campo abaixo:</legend>
@@ -13,6 +13,19 @@
             <input id="txtNome" name="txtNome">
             <label for="txtpassword">Senha:</label>
             <input id="txtpassword" name="txtpassword">
+            <br>
+        </fieldset>
+        <input type="submit" value="enviar">
+    </form>
+
+    <h1>Formulário (Com jsp):</h1>
+    <form action="cadastroJSP/welcome" method="post">
+        <fieldset>
+            <legend>Preencha o campo abaixo:</legend>
+            <label for="name">Nome:</label>
+            <input id="name" name="name">
+            <label for="password">Senha:</label>
+            <input id="password" name="password">
             <br>
         </fieldset>
         <input type="submit" value="enviar">

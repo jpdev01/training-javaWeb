@@ -1,0 +1,24 @@
+Compartilhar atributos entre todos os servlets e JSP's da aplicação
+
+* EM SERVLETS *
+ServletContext ctx = getServletContext();
+
+ctx.setAtributte(name, value);
+String versao = ctx.getAttribute("versao");
+
+* EM JSP *
+<%
+application.setAttribute(name, value);
+%>
+
+<%= application.getAttribute(name) %>
+
+* ACESSO CONCORRENTE AOS ATRIBUTOS (ESCOPO SESSION) - cada cliente tem seu escopo. *
+ServletContext ctx = getServletContext();
+
+synchronized(ctx)
+{
+ctx.setAttribute(name, value);
+}
+
+login de usuário, carrinho de compras, várias telas de cadastro, para as req não se baterem
