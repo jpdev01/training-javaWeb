@@ -14,11 +14,20 @@ application.setAttribute(name, value);
 <%= application.getAttribute(name) %>
 
 * ACESSO CONCORRENTE AOS ATRIBUTOS (ESCOPO SESSION) - cada cliente tem seu escopo. *
+* OBS: Apenas o escopo request é thread-safe ( nos demais casos, pode dar problema se tiver mais clientes lendo ou alterando um atributo. )
 ServletContext ctx = getServletContext();
 
-synchronized(ctx)
+synchronized(ctx)  ##garante acesso exclusivo ao objeto
 {
 ctx.setAttribute(name, value);
 }
 
 login de usuário, carrinho de compras, várias telas de cadastro, para as req não se baterem
+-> cada cliente ganha sua área exclusiva de atributos.
+
+* Para salvar histórico de requisições e estados, usa-se a Session * Isso pq o Protocolo Http não armazena estado (uma requisição não tem nada haver com a próxima.)
+representada pela interface HttpSession
+*EM servlet
+HttpSession session = request.getSession();
+session.setAttribute(name, value);
+String test = session.getAttribute(name);
