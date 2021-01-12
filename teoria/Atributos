@@ -22,12 +22,19 @@ synchronized(ctx)  ##garante acesso exclusivo ao objeto
 ctx.setAttribute(name, value);
 }
 
-login de usuário, carrinho de compras, várias telas de cadastro, para as req não se baterem
 -> cada cliente ganha sua área exclusiva de atributos.
 
-* Para salvar histórico de requisições e estados, usa-se a Session * Isso pq o Protocolo Http não armazena estado (uma requisição não tem nada haver com a próxima.)
+
+
+Algumas aplicações exigem que o servidor saiba quem é o cliente com qual ele esta lidando... = estado de conversassão
+* Tela de login, carrinho, varias telas de cadastro
+Isso pq o Protocolo Http não armazena estado (uma requisição não tem nada haver com a próxima.)
+
+* Para salvar histórico de requisições e estados, usa-se a Session *
 representada pela interface HttpSession
 *EM servlet
 HttpSession session = request.getSession();
 session.setAttribute(name, value);
 String test = session.getAttribute(name);
+
+sessão do CLIENTE que faz a requisição: o reconhecimento de qual cliente faz a req fica por conta do contâiner!
