@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
 
-@WebServlet("/list/*")
+@WebServlet("/List/*")
 public class ListServlet extends HttpServlet {
 
     @Override
@@ -18,6 +18,6 @@ public class ListServlet extends HttpServlet {
         Map<String, String> props = Properties.getProperties();
         req.setAttribute("props", props);
 
-        req.getRequestDispatcher("/list.jsp").forward(req, resp);
+        req.getRequestDispatcher("properties/list.jsp").forward(req, resp);
     }
 }

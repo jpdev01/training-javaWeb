@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/edit/*")
+@WebServlet("/Edit/*")
 public class EditServlet extends HttpServlet {
 
     @Override
@@ -25,6 +25,6 @@ public class EditServlet extends HttpServlet {
             }
         }
 
-        req.getRequestDispatcher("/edit.jsp").forward(req, resp);
+        req.getRequestDispatcher("/properties/edit.jsp").forward(req, resp);
     }
 }

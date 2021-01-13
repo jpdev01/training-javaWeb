@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/save/*")
+@WebServlet("/Save/*")
 public class SaveServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -18,6 +18,6 @@ public class SaveServlet extends HttpServlet {
 
         Properties.save(key, value);
 
-        resp.sendRedirect("/Props/List");
+        resp.sendRedirect("/training-servlet-oficial/List");
     }
 }

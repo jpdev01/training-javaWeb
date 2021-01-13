@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Properties {
-    private static final String FILE_NAME = "d:/temp/JavaWeb/props.txt"; //carrega o arquivo de propriedades na memória
+    private static final String FILE_NAME = "../../../props.txt"; //carrega o arquivo de propriedades na memória
     private static java.util.Properties props; //permite mappear chave à valores.
 
     static
