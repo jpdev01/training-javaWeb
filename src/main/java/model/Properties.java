@@ -20,7 +20,6 @@ public class Properties {
         } catch (Exception e ){
             e.printStackTrace();
         }
-
     }
 
     private Properties() {

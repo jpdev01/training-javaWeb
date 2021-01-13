@@ -9,6 +9,7 @@ String versao = ctx.getAttribute("versao");
 * EM JSP *
 <%
 application.setAttribute(name, value);
+application.setAttribute(name); // getAttribute sempre retorna um Object, mas se vc sabe o tipo que irá retornar, pode fazer um cast
 %>
 
 <%= application.getAttribute(name) %>
