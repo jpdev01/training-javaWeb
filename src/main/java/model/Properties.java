@@ -1,2 +1,4 @@
-package model;public class Properties {
+package model;
+
+public class Properties {
 }

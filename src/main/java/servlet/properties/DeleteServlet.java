@@ -1,2 +1,4 @@
-package servlet.properties;public class DeleteServlet {
+package servlet.properties;
+
+public class DeleteServlet {
 }

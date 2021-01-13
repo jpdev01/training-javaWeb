@@ -1,6 +1,6 @@
 package servlet;
 
-import classes.Pessoa;
+import model.Pessoa;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;

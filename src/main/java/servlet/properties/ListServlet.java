@@ -1,2 +1,4 @@
-package servlet.properties;public class ListServlet {
+package servlet.properties;
+
+public class ListServlet {
 }
