@@ -38,3 +38,8 @@ session.setAttribute(name, value);
 String test = session.getAttribute(name);
 
 sessão do CLIENTE que faz a requisição: o reconhecimento de qual cliente faz a req fica por conta do contâiner!
+
+* se você estiver acessando uma aplicação, e um atributo for colocado na sua sessão, numa requisição futura, a aplicação poderá ler esse atributo.
+
+?? Como um servidor sabe quem é o cliente ???
+- O servidor gera um ID único por cliente.
