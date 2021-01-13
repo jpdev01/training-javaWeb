@@ -23,6 +23,5 @@ public class EditServlet extends HttpServlet {
         }
 
         req.getRequestDispatcher("/edit.jsp").forward(req, resp);
-
     }
 }
