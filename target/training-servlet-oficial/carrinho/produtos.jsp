@@ -26,7 +26,7 @@
     <tr>
         <td align="center"><%= p.getName() %></td>
         <td align="center"><%= p.getValue() %></td>
-        <td align="center"><a href="Carrinho/Adicionar?id=<%= p.getId() %>">Adicionar</a></td>
+        <td align="center"><a href="../Carrinho/Adicionar?id=<%= p.getId() %>">Adicionar</a></td>
     </tr>
     <% } %>
 </table>
