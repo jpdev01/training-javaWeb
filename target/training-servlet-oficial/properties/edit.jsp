@@ -19,7 +19,7 @@
     value = (value != null) ? value : "";
 %>
 <CENTER><H1>Editar</H1></CENTER>
-<form action="save" method="post">
+<form action="Save" method="post">
     <table>
         <tr>
             <td>Chave: </td>
