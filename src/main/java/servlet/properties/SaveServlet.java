@@ -18,6 +18,6 @@ public class SaveServlet extends HttpServlet {
 
         Properties.save(key, value);
 
-        resp.sendRedirect("/training-servlet-oficial/List");
+        resp.sendRedirect("List");
     }
 }

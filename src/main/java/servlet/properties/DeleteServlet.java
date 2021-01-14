@@ -16,6 +16,6 @@ public class DeleteServlet extends HttpServlet {
         String key = req.getParameter("key");
         Properties.delete(key);
 
-        resp.sendRedirect("/Props/List");
+        resp.sendRedirect("List");
     }
 }
