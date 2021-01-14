@@ -18,7 +18,7 @@
 
 <CENTER><H1>Propriedades</H1></CENTER>
 
-<a href="editServlet">Criar nova propriedade</a>
+<a href="Edit">Criar nova propriedade</a>
 <br><br>
 <table border="1" width="100%">
     <tr>
@@ -30,8 +30,8 @@
     <tr>
         <td align="center"><%= entry.getKey() %></td>
         <td align="center"><%= entry.getValue() %></td>
-        <td align="center"><a href="saveServlet?key=<%= entry.getKey() %>">Editar</a></td>
-        <td align="center"><a href="deleteServlet?key=<%= entry.getKey() %>">Excluir</a></td>
+        <td align="center"><a href="Save?key=<%= entry.getKey() %>">Editar</a></td>
+        <td align="center"><a href="Delete?key=<%= entry.getKey() %>">Excluir</a></td>
     </tr>
 
 <% } %>
