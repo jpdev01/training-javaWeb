@@ -23,6 +23,13 @@ public class Carrinho {
 
     public Produto getProdutoById(int id)
     {
-        return produtos.get(id);
+        for (Produto p : produtos)
+        {
+            if (p.getId() == id)
+            {
+                return p;
+            }
+        }
+        return null;
     }
 }

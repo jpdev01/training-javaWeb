@@ -14,6 +14,7 @@
     <title>Carrinho</title>
 </head>
 <body>
+<p>Voltar para a lista de produtos</p>
 <H1>Lista de Produtos no carrinho</H1>
 <%
     List<Produto> produtos = (List<Produto>) request.getAttribute("carrinho");
@@ -31,6 +32,13 @@
         <td align="center"><a href="../Carrinho/Excluir?id=<%= p.getId() %>">Excluir</a></td>
     </tr>
     <% } %>
+    <%
+        if (produtos.isEmpty() || produtos == null){ %>
+            <tr>
+                <td colspan="3">Seu carrinho está vazio!</td>
+            </tr>
+       <% }%>
+
 </table>
 </body>
 </html>
