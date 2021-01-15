@@ -14,7 +14,7 @@
     <title>Carrinho</title>
 </head>
 <body>
-<p>Voltar para a lista de produtos</p>
+<p><a href="../Produtos/List/">Voltar para a lista de produtos</a></p>
 <H1>Lista de Produtos no carrinho</H1>
 <%
     List<Produto> produtos = (List<Produto>) request.getAttribute("carrinho");

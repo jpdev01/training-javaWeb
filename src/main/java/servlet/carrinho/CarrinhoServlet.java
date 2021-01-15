@@ -21,6 +21,10 @@ public class CarrinhoServlet extends HttpServlet {
 
         Carrinho carrinho = (Carrinho) session.getAttribute("carrinho");
 
+        if (carrinho == null)
+        {
+            carrinho = new Carrinho();
+        }
         List<Produto> listCarrinho = carrinho.getProdutos();
 
         req.setAttribute("carrinho", listCarrinho);
