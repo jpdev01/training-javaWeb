@@ -1,7 +1,8 @@
 
 <%@ page import="entity.Produto" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.Collection" %><%--
+<%@ page import="java.util.Collection" %>
+<%@ page import="entity.Config" %><%--
   Created by IntelliJ IDEA.
   User: jptru
   Date: 13/01/2021
@@ -14,7 +15,10 @@
     <title>Carrinho</title>
 </head>
 <body>
-<p><a href="../Produtos/List/">Voltar para a lista de produtos</a></p>
+<%
+    Config app = new Config();
+%>
+<p><a href="<%= app.getPatternApp() %>/Produtos/List/">Voltar para a lista de produtos</a></p>
 <H1>Lista de Produtos no carrinho</H1>
 <%
     List<Produto> produtos = (List<Produto>) request.getAttribute("carrinho");
@@ -29,7 +33,7 @@
     <tr>
         <td align="center"><%= p.getName() %></td>
         <td align="center"><%= p.getValue() %></td>
-        <td align="center"><a href="../Carrinho/Excluir?id=<%= p.getId() %>">Excluir</a></td>
+        <td align="center"><a href="<%= app.getPatternApp() %>/Carrinho/Excluir?id=<%= p.getId() %>">Excluir</a></td>
     </tr>
     <% } %>
     <%
