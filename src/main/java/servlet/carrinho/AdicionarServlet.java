@@ -37,7 +37,7 @@ public class AdicionarServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        req.getRequestDispatcher("../Produtos/List").forward(req, resp);
+        req.getRequestDispatcher("../Carrinho/Carrinho").forward(req, resp);
 
     }
 }

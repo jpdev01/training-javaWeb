@@ -14,4 +14,15 @@ public class Carrinho {
     public List<Produto> getProdutos(){
         return produtos;
     }
+
+    public void deleteProduto(int id)
+    {
+        Produto p = Produto.getProdutoById(id);
+        produtos.remove(p);
+    }
+
+    public Produto getProdutoById(int id)
+    {
+        return produtos.get(id);
+    }
 }
