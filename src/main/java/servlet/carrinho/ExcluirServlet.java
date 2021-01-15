@@ -19,7 +19,7 @@ public class ExcluirServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         HttpSession session = req.getSession();
-        Carrinho carrinho = (Carrinho) req.getAttribute("carrinho");
+        Carrinho carrinho = (Carrinho) session.getAttribute("carrinho");
         if (carrinho != null && carrinho.getProdutoById(id) != null)
         {
             carrinho.deleteProduto(id);
