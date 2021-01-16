@@ -9,7 +9,7 @@
   Time: 21:22
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="ISO-8859-1" %>
 <html>
 <head>
     <title>Carrinho</title>
@@ -19,7 +19,21 @@
     Config app = new Config();
 %>
 <p><a href="<%= app.getPatternApp() %>/Produtos/List/">Voltar para a lista de produtos</a></p>
-<H1>Lista de Produtos no carrinho</H1>
+<%
+    String username = "";
+    Cookie[] cookies = request.getCookies();
+    if (cookies != null)
+    {
+        for (Cookie c : cookies)
+        {
+            if (c.getName().equals("username"))
+            {
+                username = c.getValue();
+            }
+        }
+    }
+%>
+<H1>Lista de Produtos - carrinho de <%= username %></H1>
 <%
     List<Produto> produtos = (List<Produto>) request.getAttribute("carrinho");
 %>
@@ -44,7 +58,7 @@
     <%
         if (produtos.isEmpty() || produtos == null){ %>
             <tr>
-                <td colspan="3">Seu carrinho est√° vazio!</td>
+                <td colspan="3">Seu carrinho est· vazio!</td>
             </tr>
        <% }%>
 </table>

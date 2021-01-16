@@ -18,6 +18,7 @@ public class SaveUser extends HttpServlet {
         Cookie cookie = new Cookie("Username", this.name);
         cookie.setMaxAge(30);//30min
         resp.addCookie(cookie); //armazenada no browser
+        req.getRequestDispatcher("/carrinho/carrinho.jsp").forward(req, resp);
     }
 
     public String getName() {
