@@ -25,6 +25,7 @@
         for (Cookie c : cookies) {
             if (c.getName().equals("username")) {
                 username = c.getValue();
+                break;
             }
         }
     }
@@ -36,7 +37,7 @@
 %>
 <form action="<%= app.getPatternApp() %>User/Save" method="post">
     <label>Nome:</label>
-    <input type="text" value="" name="name">
+    <input type="text" value="<%=username%>" name="name">
     <button type="submit">Salvar dados</button>
 </form>
 <table border="1" width="100%">
