@@ -42,7 +42,8 @@
                 <td colspan="3">Seu carrinho está vazio!</td>
             </tr>
        <% }%>
-
+    <p>Criar cookie a partir do carrinho</p>
+    <p><a href="<%= app.getPatternApp()%>Cookie/Save?produtos=teste">Importar carrinho dos cookies</a></p>
 </table>
 </body>
 </html>

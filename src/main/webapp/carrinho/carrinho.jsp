@@ -23,6 +23,11 @@
 <%
     List<Produto> produtos = (List<Produto>) request.getAttribute("carrinho");
 %>
+<form action="<%= app.getPatternApp() %>/User/Save" method="post">
+    <label>Nome:</label>
+    <input type="text" value="" name="name">
+    <button type="submit">Salvar dados</button>
+</form>
 <table border="1" width="100%">
     <tr>
         <td align="center"><strong>Produto</strong></td>
@@ -42,7 +47,6 @@
                 <td colspan="3">Seu carrinho está vazio!</td>
             </tr>
        <% }%>
-
 </table>
 </body>
 </html>
