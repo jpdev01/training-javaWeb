@@ -1,4 +1,3 @@
-
 <%@ page import="entity.Produto" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Collection" %>
@@ -22,24 +21,23 @@
 <%
     String username = "";
     Cookie[] cookies = request.getCookies();
-    if (cookies != null)
-    {
-        for (Cookie c : cookies)
-        {
-            if (c.getName().equals("username"))
-            {
+    if (cookies != null) {
+        for (Cookie c : cookies) {
+            if (c.getName().equals("username")) {
                 username = c.getValue();
             }
         }
     }
 %>
-<H1>Lista de Produtos - carrinho de <%= username %></H1>
+<H1>Lista de Produtos - carrinho de <%= username %>
+</H1>
 <%
     List<Produto> produtos = (List<Produto>) request.getAttribute("carrinho");
 %>
 <form action="<%= app.getPatternApp() %>User/Save" method="post">
     <label>Nome:</label>
     <input type="text" value="" name="name">
+    <input name="produtos" value="<%=produtos%>">
     <button type="submit">Salvar dados</button>
 </form>
 <table border="1" width="100%">
@@ -48,19 +46,24 @@
         <td align="center"><strong>Valor</strong></td>
         <td align="center"><strong></strong></td>
     </tr>
-    <% for (Produto p : produtos) { %>
+    <% if (produtos != null && !(produtos.isEmpty())) {
+        for (Produto p : produtos) { %>
     <tr>
-        <td align="center"><%= p.getName() %></td>
-        <td align="center"><%= p.getValue() %></td>
+        <td align="center"><%= p.getName() %>
+        </td>
+        <td align="center"><%= p.getValue() %>
+        </td>
         <td align="center"><a href="<%= app.getPatternApp() %>/Carrinho/Excluir?id=<%= p.getId() %>">Excluir</a></td>
     </tr>
-    <% } %>
+    <% }
+
+    } else {
+    %>
+    <tr>
+        <td colspan="3">Seu carrinho está vazio!</td>
+    </tr>
     <%
-        if (produtos.isEmpty() || produtos == null){ %>
-            <tr>
-                <td colspan="3">Seu carrinho está vazio!</td>
-            </tr>
-       <% }%>
+    }%>
 </table>
 </body>
 </html>
