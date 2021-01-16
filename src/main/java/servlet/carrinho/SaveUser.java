@@ -16,8 +16,7 @@ public class SaveUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.setName(req.getParameter("name"));
-        String s= req.getParameter("produtos");
-        Cookie cookie = new Cookie("Username", this.name);
+        Cookie cookie = new Cookie("username", this.name);
         cookie.setMaxAge(30);//30min
         resp.addCookie(cookie); //armazenada no browser
 
@@ -44,6 +43,9 @@ public class SaveUser extends HttpServlet {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name != null && name != "")
+        {
+            this.name = name;
+        }
     }
 }
