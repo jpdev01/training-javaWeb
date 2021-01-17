@@ -14,3 +14,6 @@ Então, como fazer meu jsp gerar conteúdo dinâmico sem Java?
 - Uma classe é um JavaBean se:
 a) Possuir um construtor público e sem argumentos.
 b) Métodos getters e setters definidos corretamente.
+
+2-Expression Language
+* Ainda mais facilidade na hora de ler informações presentes em um escopo.
